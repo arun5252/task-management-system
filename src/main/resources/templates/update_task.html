@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Task</title>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #e0ecff, #f4f7fb);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1d4ed8;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn {
+            text-decoration: none;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .update-btn {
+            background: #1d4ed8;
+            color: white;
+        }
+
+        .update-btn:hover {
+            background: #1e40af;
+        }
+
+        .back-btn {
+            background: #e2e8f0;
+            color: #1f2937;
+        }
+
+        .back-btn:hover {
+            background: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Update Task</h2>
+
+    <form th:action="@{/updateTask/{id}(id=${task.id})}" th:object="${task}" method="post">
+        <label>Title</label>
+        <input type="text" th:field="*{title}" required>
+
+        <label>Description</label>
+        <textarea th:field="*{description}" rows="3"></textarea>
+
+        <label>Due Date</label>
+        <input type="date" th:field="*{dueDate}">
+
+        <label>Status</label>
+        <select th:field="*{status}">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
+
+        <label>Remarks</label>
+        <input type="text" th:field="*{remarks}">
+
+        <label>Updated By Name</label>
+        <input type="text" th:field="*{updatedByName}" required>
+
+        <label>Updated By Id</label>
+        <input type="text" th:field="*{updatedById}" required>
+
+        <div class="btn-row">
+            <button type="submit" class="btn update-btn">Update Task</button>
+            <a th:href="@{/}" class="btn back-btn">Back</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
