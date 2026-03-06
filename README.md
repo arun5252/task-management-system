@@ -141,7 +141,7 @@ http://localhost:8082
 
 git clone https://github.com/arun5252/task-management-system.git
 
-2. Open the project in Eclipse or IntelliJ
+2. Open the project in Eclipse 
 
 3. Configure MySQL database in application.properties
 
