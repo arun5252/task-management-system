@@ -135,6 +135,22 @@ http://localhost:8082
 
 ---
 
+## How to Run the Project
+
+1. Clone the repository
+
+git clone https://github.com/arun5252/task-management-system.git
+
+2. Open the project in Eclipse or IntelliJ
+
+3. Configure MySQL database in application.properties
+
+4. Run the Spring Boot application
+
+5. Open browser and go to:
+
+http://localhost:8082
+
 ## Author
 
 Arun Sharma  
